@@ -21,9 +21,11 @@ function addNewPizza(pizzaObj) {
 //     if (pizza[name] === pizzaName) {
 //       cashInRegister += pizza[price];
 //       const orderObj = {
+//         id: nextOrderId,
 //         pizza: pizza,
 //         status: "ordered",
 //       };
+//       nextOrderId++;
 //       orderQueue.push(orderObj);
 //       return orderObj;
 //     }
@@ -34,18 +36,17 @@ function placeOrder(pizzaName) {
   const selectedPizza = menu.find((pizzaObj) => pizzaObj.name === pizzaName);
   cashInRegister += selectedPizza.price;
   const newOrder = {
-    id: nextOrderId,
+    id: nextOrderId++,
     pizza: selectedPizza,
     status: "ordered",
   };
-  nextOrderId++;
   orderQueue.push(newOrder);
   return newOrder;
 }
 
 // #3 exercise
 function completeOrder(orderId) {
-  const foundOrder = orderQueue.find((orderObj) => orderObj.id === orderId);
-  foundOrder.status = "completed";
-  return foundOrder;
+  const order = orderQueue.find((order) => order.id === orderId);
+  order.status = "completed";
+  return order;
 }
