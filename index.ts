@@ -10,15 +10,17 @@ type Order = {
   status: "ordered" | "completed";
 };
 
-const menu: Pizza[] = [
-  { id: 1, name: "Margherita", price: 8 },
-  { id: 2, name: "Pepperoni", price: 10 },
-  { id: 3, name: "Hawaiian", price: 10 },
-  { id: 4, name: "Veggie", price: 9 },
-];
-
 let cashInRegister = 100;
 let nextOrderId = 1;
+let nextPizzaId;
+
+const menu: Pizza[] = [
+  { id: nextOrderId++, name: "Margherita", price: 8 },
+  { id: nextOrderId++, name: "Pepperoni", price: 10 },
+  { id: nextOrderId++, name: "Hawaiian", price: 10 },
+  { id: nextOrderId++, name: "Veggie", price: 9 },
+];
+
 const orderQueue: Order[] = [];
 
 // #1 exercise
@@ -71,9 +73,9 @@ function getPizzaDetail(identifier: string | number): Pizza | undefined {
   }
 }
 
-addNewPizza({ id: 5, name: "Chicken Bacon Ranch", price: 12 });
-addNewPizza({ id: 6, name: "BBQ Chicken", price: 12 });
-addNewPizza({ id: 7, name: "Spicy Sausage", price: 11 });
+addNewPizza({ id: nextOrderId++, name: "Chicken Bacon Ranch", price: 12 });
+addNewPizza({ id: nextOrderId++, name: "BBQ Chicken", price: 12 });
+addNewPizza({ id: nextOrderId++, name: "Spicy Sausage", price: 11 });
 
 placeOrder("Chicken Bacon Ranch");
 completeOrder(1);

@@ -1,12 +1,13 @@
 "use strict";
-var menu = [
-    { id: 1, name: "Margherita", price: 8 },
-    { id: 2, name: "Pepperoni", price: 10 },
-    { id: 3, name: "Hawaiian", price: 10 },
-    { id: 4, name: "Veggie", price: 9 },
-];
 var cashInRegister = 100;
 var nextOrderId = 1;
+var nextPizzaId;
+var menu = [
+    { id: nextOrderId++, name: "Margherita", price: 8 },
+    { id: nextOrderId++, name: "Pepperoni", price: 10 },
+    { id: nextOrderId++, name: "Hawaiian", price: 10 },
+    { id: nextOrderId++, name: "Veggie", price: 9 },
+];
 var orderQueue = [];
 // #1 exercise
 function addNewPizza(pizzaObj) {
@@ -50,9 +51,9 @@ function getPizzaDetail(identifier) {
         throw new TypeError("Parameter 'identifier' must be either a string or a number");
     }
 }
-addNewPizza({ id: 5, name: "Chicken Bacon Ranch", price: 12 });
-addNewPizza({ id: 6, name: "BBQ Chicken", price: 12 });
-addNewPizza({ id: 7, name: "Spicy Sausage", price: 11 });
+addNewPizza({ id: nextOrderId++, name: "Chicken Bacon Ranch", price: 12 });
+addNewPizza({ id: nextOrderId++, name: "BBQ Chicken", price: 12 });
+addNewPizza({ id: nextOrderId++, name: "Spicy Sausage", price: 11 });
 placeOrder("Chicken Bacon Ranch");
 completeOrder(1);
 console.log("Menu:", menu);
