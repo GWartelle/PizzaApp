@@ -56,6 +56,14 @@ function completeOrder(orderId: number) {
   return order;
 }
 
+// #4 exercise
+function getPizzaDetail(identifier: string | number) {
+  const selectedPizza = menu.find(
+    (pizzaObj) => pizzaObj.name === identifier || pizzaObj.id === identifier
+  );
+  return selectedPizza;
+}
+
 addNewPizza({ id: 5, name: "Chicken Bacon Ranch", price: 12 });
 addNewPizza({ id: 6, name: "BBQ Chicken", price: 12 });
 addNewPizza({ id: 7, name: "Spicy Sausage", price: 11 });
