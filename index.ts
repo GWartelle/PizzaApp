@@ -58,10 +58,17 @@ function completeOrder(orderId: number) {
 
 // #4 exercise
 function getPizzaDetail(identifier: string | number) {
-  const selectedPizza = menu.find(
-    (pizzaObj) => pizzaObj.name === identifier || pizzaObj.id === identifier
-  );
-  return selectedPizza;
+  if (typeof identifier === "string") {
+    return menu.find(
+      (pizza) => pizza.name.toLowerCase() === identifier.toLowerCase()
+    );
+  } else if (typeof identifier === "number") {
+    return menu.find((pizza) => pizza.id === identifier);
+  } else {
+    throw new TypeError(
+      "Parameter 'identifier' must be either a string or a number"
+    );
+  }
 }
 
 addNewPizza({ id: 5, name: "Chicken Bacon Ranch", price: 12 });

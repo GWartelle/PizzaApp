@@ -40,8 +40,15 @@ function completeOrder(orderId) {
 }
 // #4 exercise
 function getPizzaDetail(identifier) {
-    var selectedPizza = menu.find(function (pizzaObj) { return pizzaObj.name === identifier || pizzaObj.id === identifier; });
-    return selectedPizza;
+    if (typeof identifier === "string") {
+        return menu.find(function (pizza) { return pizza.name.toLowerCase() === identifier.toLowerCase(); });
+    }
+    else if (typeof identifier === "number") {
+        return menu.find(function (pizza) { return pizza.id === identifier; });
+    }
+    else {
+        throw new TypeError("Parameter 'identifier' must be either a string or a number");
+    }
 }
 addNewPizza({ id: 5, name: "Chicken Bacon Ranch", price: 12 });
 addNewPizza({ id: 6, name: "BBQ Chicken", price: 12 });
