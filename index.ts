@@ -22,12 +22,12 @@ let nextOrderId = 1;
 const orderQueue: Order[] = [];
 
 // #1 exercise
-function addNewPizza(pizzaObj: Pizza) {
+function addNewPizza(pizzaObj: Pizza): void {
   menu.push(pizzaObj);
 }
 
 // #2 exercise
-function placeOrder(pizzaName: string) {
+function placeOrder(pizzaName: string): Order | undefined {
   const selectedPizza = menu.find((pizzaObj) => pizzaObj.name === pizzaName);
   if (!selectedPizza) {
     console.error(`${pizzaName} does not exist in the menu`);
@@ -44,7 +44,7 @@ function placeOrder(pizzaName: string) {
 }
 
 // #3 exercise
-function completeOrder(orderId: number) {
+function completeOrder(orderId: number): Order | undefined {
   const order = orderQueue.find((order) => order.id === orderId);
   if (!order) {
     console.error(
