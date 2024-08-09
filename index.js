@@ -1,7 +1,18 @@
 "use strict";
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
 var cashInRegister = 100;
 var nextOrderId = 1;
-var nextPizzaId;
+var nextPizzaId = 1;
 var menu = [
     { id: nextOrderId++, name: "Margherita", price: 8 },
     { id: nextOrderId++, name: "Pepperoni", price: 10 },
@@ -11,7 +22,9 @@ var menu = [
 var orderQueue = [];
 // #1 exercise
 function addNewPizza(pizzaObj) {
-    menu.push(pizzaObj);
+    var newPizza = __assign({ id: nextPizzaId++ }, pizzaObj);
+    menu.push(newPizza);
+    return newPizza;
 }
 // #2 exercise
 function placeOrder(pizzaName) {
@@ -51,9 +64,9 @@ function getPizzaDetail(identifier) {
         throw new TypeError("Parameter 'identifier' must be either a string or a number");
     }
 }
-addNewPizza({ id: nextOrderId++, name: "Chicken Bacon Ranch", price: 12 });
-addNewPizza({ id: nextOrderId++, name: "BBQ Chicken", price: 12 });
-addNewPizza({ id: nextOrderId++, name: "Spicy Sausage", price: 11 });
+addNewPizza({ name: "Chicken Bacon Ranch", price: 12 });
+addNewPizza({ name: "BBQ Chicken", price: 12 });
+addNewPizza({ name: "Spicy Sausage", price: 11 });
 placeOrder("Chicken Bacon Ranch");
 completeOrder(1);
 console.log("Menu:", menu);
