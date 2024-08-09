@@ -10,7 +10,7 @@ const voters = [
   { name: "Bob", age: 77 },
 ];
 
-function getLastItem<Type>(array: Type[]) {
+function getLastItem<Type>(array: Type[]): Type | undefined {
   return array[array.length - 1];
 }
 
