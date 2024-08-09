@@ -15,10 +15,10 @@ let nextOrderId = 1;
 let nextPizzaId = 1;
 
 const menu: Pizza[] = [
-  { id: nextOrderId++, name: "Margherita", price: 8 },
-  { id: nextOrderId++, name: "Pepperoni", price: 10 },
-  { id: nextOrderId++, name: "Hawaiian", price: 10 },
-  { id: nextOrderId++, name: "Veggie", price: 9 },
+  { id: nextPizzaId++, name: "Margherita", price: 8 },
+  { id: nextPizzaId++, name: "Pepperoni", price: 10 },
+  { id: nextPizzaId++, name: "Hawaiian", price: 10 },
+  { id: nextPizzaId++, name: "Veggie", price: 9 },
 ];
 
 const orderQueue: Order[] = [];

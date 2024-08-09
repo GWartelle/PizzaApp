@@ -14,10 +14,10 @@ var cashInRegister = 100;
 var nextOrderId = 1;
 var nextPizzaId = 1;
 var menu = [
-    { id: nextOrderId++, name: "Margherita", price: 8 },
-    { id: nextOrderId++, name: "Pepperoni", price: 10 },
-    { id: nextOrderId++, name: "Hawaiian", price: 10 },
-    { id: nextOrderId++, name: "Veggie", price: 9 },
+    { id: nextPizzaId++, name: "Margherita", price: 8 },
+    { id: nextPizzaId++, name: "Pepperoni", price: 10 },
+    { id: nextPizzaId++, name: "Hawaiian", price: 10 },
+    { id: nextPizzaId++, name: "Veggie", price: 9 },
 ];
 var orderQueue = [];
 // #1 exercise
