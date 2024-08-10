@@ -64,9 +64,17 @@ function getPizzaDetail(identifier) {
         throw new TypeError("Parameter 'identifier' must be either a string or a number");
     }
 }
-addNewPizza({ name: "Chicken Bacon Ranch", price: 12 });
-addNewPizza({ name: "BBQ Chicken", price: 12 });
-addNewPizza({ name: "Spicy Sausage", price: 11 });
+// #5 exercise
+function addToArray(array, item) {
+    array.push(item);
+    return array;
+}
+addToArray(menu, { id: nextPizzaId++, name: "Chicken Bacon Ranch", price: 12 });
+addToArray(orderQueue, {
+    id: nextOrderId,
+    pizza: menu[2],
+    status: "completed",
+});
 placeOrder("Chicken Bacon Ranch");
 completeOrder(1);
 console.log("Menu:", menu);

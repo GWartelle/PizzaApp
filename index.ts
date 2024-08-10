@@ -78,9 +78,18 @@ function getPizzaDetail(identifier: string | number): Pizza | undefined {
   }
 }
 
-addNewPizza({ name: "Chicken Bacon Ranch", price: 12 });
-addNewPizza({ name: "BBQ Chicken", price: 12 });
-addNewPizza({ name: "Spicy Sausage", price: 11 });
+// #5 exercise
+function addToArray<T>(array: T[], item: T): T[] | undefined {
+  array.push(item);
+  return array;
+}
+
+addToArray(menu, { id: nextPizzaId++, name: "Chicken Bacon Ranch", price: 12 });
+addToArray(orderQueue, {
+  id: nextOrderId,
+  pizza: menu[2],
+  status: "completed",
+});
 
 placeOrder("Chicken Bacon Ranch");
 completeOrder(1);
