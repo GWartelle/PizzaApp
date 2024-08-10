@@ -69,7 +69,11 @@ function addToArray(array, item) {
     array.push(item);
     return array;
 }
-addToArray(menu, { id: nextPizzaId++, name: "Chicken Bacon Ranch", price: 12 });
+addToArray(menu, {
+    id: nextPizzaId++,
+    name: "Chicken Bacon Ranch",
+    price: 12,
+});
 addToArray(orderQueue, {
     id: nextOrderId,
     pizza: menu[2],

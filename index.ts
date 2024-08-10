@@ -84,8 +84,12 @@ function addToArray<T>(array: T[], item: T): T[] | undefined {
   return array;
 }
 
-addToArray(menu, { id: nextPizzaId++, name: "Chicken Bacon Ranch", price: 12 });
-addToArray(orderQueue, {
+addToArray<Pizza>(menu, {
+  id: nextPizzaId++,
+  name: "Chicken Bacon Ranch",
+  price: 12,
+});
+addToArray<Order>(orderQueue, {
   id: nextOrderId,
   pizza: menu[2],
   status: "completed",
